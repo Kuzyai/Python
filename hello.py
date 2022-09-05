@@ -64,3 +64,59 @@ the_first_digit_after_decimal(input('Введите дробное число: '
 
 the_multiplicity_of_the_number(
     int(input('Введите число кратное 5 и 10 или 15, но не кратное 30: '))) """
+
+# 1. Напишите программу, которая принимает на вход число N и
+# выдаёт последовательность из N членов.
+
+
+""" def subsequence(N):
+    i = 0
+    result = 1
+    while (i < N):
+        print(result, end=" ")
+        result *= -3
+        i += 1
+
+
+subsequence(int(input('Введите число: '))) """
+
+# 2. Для натурального n создать последовательности 3n + 1.
+
+
+""" def the_sequence_of_numbers(n):
+    i = 1
+    while i <= n:
+        result = 3 * i + 1
+        print(f'{i}: {result}')
+        i += 1
+
+
+the_sequence_of_numbers(int(input('Введите число: '))) """
+
+# 3. Напишите программу, в которой пользователь будет задавать две
+# строки, а программа - определять количество вхождений одной строки в другой.
+
+
+""" def entering_the_lines(str1, str2):
+    if len(str2) > len(str1):
+        print(str2.count(str1))
+    else:
+        print(str1.count(str2))
+
+
+entering_the_lines(input('Введите первую строку: '),
+                   input('Введите вторую строку: ')) """
+
+
+""" def entering_the_lines(str1, str2):
+    count = 0
+    if len(str1) > len(str2):
+        str1, str2 = str2, str1
+    for i in range(len(str2)):
+        if str1 == str2[i:i + len(str1)]:
+            count += 1
+    print(f'{count} раз')
+
+
+entering_the_lines(input('Введите первую строку: '),
+                   input('Введите вторую строку: ')) """

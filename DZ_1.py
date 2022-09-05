@@ -15,7 +15,7 @@ day_of_the_week(int(input('Введите число обозначающее д
 # 2. Напишите программу для. проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат.
 
 
-def the_truth_of_the_statement():
+""" def the_truth_of_the_statement():
     for i in range(2):
         for j in range(2):
             for k in range(2):
@@ -25,7 +25,7 @@ def the_truth_of_the_statement():
                     print(f'Ложь X = {i}, Y = {j}, Z = {k}')
 
 
-the_truth_of_the_statement()
+the_truth_of_the_statement() """
 
 # 3. Напишите программу, которая принимает на вход координаты точки (X и Y), причём X ≠ 0 и Y ≠ 0 и выдаёт
 # номер четверти плоскости, в которой находится эта точка (или на какой оси она находится).
