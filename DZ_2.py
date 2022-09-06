@@ -1,6 +1,9 @@
 # 1. Напишите программу, которая принимает на вход вещественное число и показывает сумму его цифр.
-""" def the_sum_numbers(n):
-    number = n.replace(',', '.').split('.')
+""" import re
+
+
+def the_sum_numbers(n):
+    number = re.split('\D', n)
     sum = 0
     for i in number:
         for j in i:
