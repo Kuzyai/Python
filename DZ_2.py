@@ -77,11 +77,14 @@ work_elements(int(input('Введите число: ')), input(
 
 # 5. Реализуйте алгоритм перемешивания списка.
 
+
 """ from random import randint
 def mixing_list(list):
     print(list)
     for i in range(len(list)):
-        k = randint(0, len(list))
+        k = randint(0, len(list) - 1)
+        if k == i:
+            continue
         list[i], list[k] = list[k], list[i]
     print(list)
 
