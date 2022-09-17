@@ -120,3 +120,90 @@ entering_the_lines(input('Введите первую строку: '),
 
 entering_the_lines(input('Введите первую строку: '),
                    input('Введите вторую строку: ')) """
+
+
+""" def entering_the_lines(str1, str2):
+    if len(str1) > len(str2):
+        str1, str2 = str2, str1
+    n = 1
+    for i in range(0, len(str1)):
+        for j in range(0, len(str2), n):
+            if str1[0:i + 1] == str2[j:i + j + 1]:
+                continue
+            else:
+                n += 1
+                break
+        else:
+            return str1[0:i + 1]
+    else:
+        return '""'
+
+
+divider = entering_the_lines(
+    input('Введите первую строку: '), input('Введите вторую строку: '))
+print(
+    f'Наименьший общий делитель => {divider}') """
+
+
+#  Задайте список. Напишите программу, которая определит, присутствует ли в заданном списке строк некое число.
+# ['65h34q', 'sdg634d', '147jnbv']
+
+""" def existence_number(list, num):
+    for i in list:
+        for j in range(0, len(i)):
+            if i[j: j + len(num)] == num:
+                print(f'Число {num} содержится в строке {i}')
+
+
+existence_number(['65h34q', 'sdg634d', '147jnbv'], input('Введите число: ')) """
+
+
+# Напишите программу, которая определит позицию второго вхождения строки в списке либо сообщит, что её нет.
+""" def position_second_entry(list, frase):
+    count = 0
+    for i in range(len(list)):
+        if list[i] == frase:
+            count += 1
+        if count == 2:
+            return i
+    else:
+        return -1
+
+
+print(position_second_entry(
+    ["йцу", "фыв", "йцу", "ячс", "цук", "йцукен", "йцу"], 'йцу')) """
+
+# Реализуйте алгоритм задания случайных чисел без использования встроенного генератора псевдослучайных чисел.
+
+
+""" from time import time
+def random_number():
+    now = str(time()).replace('.', '')
+    count = 2
+    dia = 10 ** int(now[-2])
+    while dia // 10:
+        dia //= 10
+        count += 1
+    print(now[-1:-count:-1])
+
+
+random_number() """
+
+
+""" from functools import wraps
+def funk(f):
+    @wraps(f)
+    def inner(*args, **kwargs):
+        print("start")
+        f(*args, **kwargs)
+        print("end")
+    return inner
+
+
+@funk
+def say(name, surname, age):
+    print('Hello', name, surname, age)
+
+
+say('V', 'sdf', 'asfasa')
+print(say.__name__) """
