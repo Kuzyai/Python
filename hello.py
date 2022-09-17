@@ -207,3 +207,74 @@ def say(name, surname, age):
 
 say('V', 'sdf', 'asfasa')
 print(say.__name__) """
+
+# 1. Задайте строку из набора чисел. Напишите программу, которая покажет большее и меньшее число.
+# В качестве символа-разделителя используйте пробел.
+
+
+""" def min_max_number(value):
+    list_num = value.split(' ')
+    min_i, max_i = 0, 0
+    for i in range(1, len(list_num)):
+        if int(list_num[i]) > int(list_num[max_i]):
+            max_i = i
+        if int(list_num[i]) < int(list_num[min_i]):
+            min_i = i
+    return f'Большее число {list_num[max_i]}, меньшее число {list_num[min_i]}'
+
+
+print(min_max_number(input('Введите числа через пробел: '))) """
+
+# 2. Найдите корни квадратного уравнения Ax² + Bx + C = 0 двумя способами:
+# 1) с помощью математических формул нахождения корней квадратного уравнения
+# 2) с помощью дополнительных библиотек Python
+
+
+""" from re import findall, split, match
+from math import sqrt
+def root_square_equation(equation):
+    s = equation.split('=')
+    s1 = ''.join(findall(r'\S', str(s[0])))
+    s2 = ''.join(findall(r'\S', str(s[1])))
+    h = findall(r'[+-]', s1)
+    m1 = match(r'[+-]', s1)
+    s2 = int(s2)
+    if m1:
+        s1 = split(r'[+-]', s1[1:])
+    else:
+        s1 = split(r'[+-]', s1[:])
+    A, B, c = s1
+    a = int(match(r'\d*', A)[0])
+    b = int(match(r'\d*', B)[0])
+    c = int(c)
+    if m1:
+        if m1[0] == '-':
+            a = -a
+        else:
+            a = a
+    if h[-2] == '-':
+        b = -b
+    if h[-1] == '-':
+        c = -c
+    if s2 != 0:
+        c -= s2
+    if not a:
+        print('Так как "A = 0" решаем его как линейное: ')
+        return (-c) / b
+    D = b ** 2 - 4 * a * c
+    if D < 0:
+        print(D)
+        return 'Корней нет'
+    if D == 0:
+        print(D)
+        return (-b) / (2 * a)
+    print(D)
+    return round((-b + sqrt(D)) / (2 * a), 2), round((-b - sqrt(D)) / (2 * a), 2)
+
+
+print(root_square_equation(input(
+    'Введите квадратное уравнение в формате "+-A * x ** 2 +- B * x +- C = number": '))) """
+
+
+# 3. Задайте два числа. Напишите программу, которая найдёт НОК (наименьшее общее кратное) этих двух чисел.
+# Ответ записать в файл.
