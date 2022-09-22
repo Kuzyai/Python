@@ -230,7 +230,9 @@ print(min_max_number(input('Введите числа через пробел: '
 # 2) с помощью дополнительных библиотек Python
 
 
-""" from re import findall, split, match
+
+
+from re import findall, split, match
 from math import sqrt
 def root_square_equation(equation):
     s = equation.split('=')
@@ -273,8 +275,19 @@ def root_square_equation(equation):
 
 
 print(root_square_equation(input(
-    'Введите квадратное уравнение в формате "+-A * x ** 2 +- B * x +- C = number": '))) """
+    'Введите квадратное уравнение в формате "+-A * x ** 2 +- B * x +- C = number": ')))
 
 
 # 3. Задайте два числа. Напишите программу, которая найдёт НОК (наименьшее общее кратное) этих двух чисел.
 # Ответ записать в файл.
+""" def smallest_common_multiple(num1, num2):
+    max_n = num1 if num1 > num2 else num2
+    for i in range(1, max_n + 1):
+        for j in range(1, max_n + 1):
+            if num1 * i == num2 * j:
+                return f'{num2 * j}'
+
+
+with open('smallest_common_multiple.txt', 'w', encoding='utf-8') as f:
+    f.write(smallest_common_multiple(
+        int(input('Введите первое число: ')), int(input('Введите второе число: ')))) """
