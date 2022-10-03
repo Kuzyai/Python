@@ -160,3 +160,25 @@ def amount_polynomials(str1, str2):
 
 
 amount_polynomials(str1, str2) """
+
+""" from sympy import sympify
+from re import sub
+with open('polynomial_1.txt', 'r') as f:
+    str1 = f.readline()
+with open('polynomial_2.txt', 'r') as f:
+    str2 = f.readline()
+
+
+def amount_polynomials(str1, str2):
+    s1 = str1.split('=')
+    s2 = str2.split('=')
+    a = sympify(s1[0])
+    b = sympify(s2[0])
+    c = sympify(s1[1])
+    d = sympify(s2[1])
+    # return f'{a + b} = {c + d}'
+    return sub(r'\*\*', r' ** ', sub(r'\*x', r' * x', f'{a + b} = {c + d}'))
+
+
+with open('amount_polynomials.txt', 'w', encoding='utf-8') as f:
+    f.write(amount_polynomials(str1, str2)) """

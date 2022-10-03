@@ -230,9 +230,7 @@ print(min_max_number(input('Введите числа через пробел: '
 # 2) с помощью дополнительных библиотек Python
 
 
-
-
-from re import findall, split, match
+""" from re import findall, split, match
 from math import sqrt
 def root_square_equation(equation):
     s = equation.split('=')
@@ -275,7 +273,7 @@ def root_square_equation(equation):
 
 
 print(root_square_equation(input(
-    'Введите квадратное уравнение в формате "+-A * x ** 2 +- B * x +- C = number": ')))
+    'Введите квадратное уравнение в формате "+-A * x ** 2 +- B * x +- C = number": '))) """
 
 
 # 3. Задайте два числа. Напишите программу, которая найдёт НОК (наименьшее общее кратное) этих двух чисел.
@@ -291,3 +289,91 @@ print(root_square_equation(input(
 with open('smallest_common_multiple.txt', 'w', encoding='utf-8') as f:
     f.write(smallest_common_multiple(
         int(input('Введите первое число: ')), int(input('Введите второе число: ')))) """
+
+""" with open('new.txt', 'r', encoding='utf-8') as f:
+    print([x for x in map(lambda i: (
+        i, i ** 2), filter(lambda x: not x % 2, map(int, f.readline().split(' '))))]) """
+
+# 1. В файле находится N натуральных чисел, записанных через пробел.
+# Среди чисел не хватает одного, чтобы выполнялось условие A[i] - 1 = A[i-1]. Найдите это число.
+""" with open('new1.txt', 'r') as f:
+    new_list = list(map(int, f.readline().split()))
+
+print([new_list[i] - 1 for i in filter(lambda i: new_list[i] -
+      1 != new_list[i-1], range(1, len(new_list)))]) """
+
+# 2. Дан список чисел. Создайте список, в который попадают числа, описываемые
+# возрастающую последовательность. Порядок элементов менять нельзя.
+""" with open('new2.txt', 'r') as f:
+    new_list = list(map(int, f.readline().split()))
+print(new_list)
+new_list2 = [new_list[i]
+             for i in range(1, len(new_list)) if new_list[i] > max(new_list[0:i])]
+new_list2.insert(0, new_list[0])
+print(new_list2) """
+
+# 3. Напишите программу, удаляющую из текста все слова, содержащие "абв".
+""" with open('new3.txt', 'r', encoding='utf-8') as f:
+    print(' '.join(
+        [x for x in filter(lambda x: x.find('абв') < 0, f.readline().split())])) """
+
+
+""" def countdown(num):
+    print('Starting')
+    while num > 0:
+        yield num
+        num -= 1
+
+
+val = countdown(5)
+next(val) """
+
+
+""" class Robot:
+    population = 0
+
+    def __init__(self, name=None):
+        self.name = name
+        print(f'Инициализация {self.name}')
+        Robot.population += 1
+
+    def __del__(self):
+        print(f'{self.name} уничтожается')
+        Robot.population -= 1
+        if not Robot.population:
+            print(f'{self.name} был последним')
+        else:
+            print(f'Осталось {Robot.population} роботов')
+
+    def say_hi(self):
+        print('Приветствую, мои хозяева называют меня', self.name)
+
+    @staticmethod
+    def how_many():
+        print(f'У нас осталось {Robot.population} роботов')
+
+
+droid1 = Robot('R2-D2')
+droid1.say_hi()
+Robot.how_many()
+
+droid2 = Robot('C-3PO')
+droid2.say_hi()
+Robot.how_many()
+print("\nЗдесь роботы могут проделать какую-то работу.\n")
+print("Роботы закончили свою работу. Давайте уничтожим их.")
+del droid1
+del droid2
+Robot.how_many() """
+
+
+""" from re import sub
+def polimorfizm(str):
+    str = sub(r'[,.!?\s]', '', str).lower()
+    if str == str[::-1]:
+        print("Полиморфизм")
+    else:
+        print("Не полиморфизм")
+
+
+polimorfizm('А роза, упала на !лапу?. Азора.') """
