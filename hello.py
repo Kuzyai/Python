@@ -377,3 +377,87 @@ def polimorfizm(str):
 
 
 polimorfizm('А роза, упала на !лапу?. Азора.') """
+
+
+# 1. Напишите программу вычисления арифметического выражения заданного строкой.
+# Используйте операции + , -, /, *. приоритет операций стандартный.
+# - Добавьте возможность использования скобок, меняющих приоритет операций.
+s = '((1+2)*3 + 2 *3)/ 5 '
+# s = '1 + 2 * 3 + 4   / 2'
+print(eval(s))
+result = list(''.join(s.split()))
+
+
+def parentheses():
+    list_index_start = []
+    list_index_end = []
+    for i in range(len(result)):
+        try:
+            list_index_start.append(result.index('(', i))
+        except ValueError:
+            pass
+    for i in range(len(result)):
+        try:
+            list_index_end.append(result.index(')', i))
+        except ValueError:
+            pass
+    # print(list_index_start)
+    # list_index_end = sorted(list(set(list_index_end)), reverse=True)
+    # print(list_index_end)
+    list_index = sorted(
+        list(set.union(set(list_index_start), set(list_index_end))))
+    return list_index
+
+
+def calculation_expression(s, i=0, j=len(result)):
+    def replacement():
+        del result[i - 1:i + 2]
+        result.insert(i - 1, n)
+    while j - i > 1:
+        while i < j:
+            if result[i] == '*':
+                n = str((float(result[i - 1]))
+                        * (float(result[i + 1])))
+                replacement()
+            elif result[i] == '/':
+                n = str((float(result[i - 1])) /
+                        (float(result[i + 1])))
+                replacement()
+            i += 1
+        i = 0
+        while i < j:
+            if result[i] == '+':
+                n = str((float(result[i - 1])) +
+                        (float(result[i + 1])))
+                replacement()
+                i -= 1
+            elif result[i] == '-':
+                n = str((float(result[i - 1])) -
+                        (float(result[i + 1])))
+                replacement()
+                i -= 1
+            i += 1
+    index_list = parentheses()
+    if len(index_list):
+        countdown = len(index_list) // 2
+        del result[index_list[countdown]]
+        del result[index_list[countdown - 1]]
+    s = ''.join(result)
+    return s
+
+
+index_list = parentheses()
+countdown = len(index_list) // 2
+
+s = calculation_expression(
+    s, index_list[countdown - 1] + 1, index_list[countdown])
+print(s)
+s = calculation_expression(
+    s, index_list[countdown - 1] + 1, index_list[countdown])
+print(s)
+s = calculation_expression(
+    s, index_list[countdown - 1] + 1, index_list[countdown])
+print(s)
+
+# 2. Дана последовательность чисел.
+# Получить список уникальных элементов заданной последовательности.
