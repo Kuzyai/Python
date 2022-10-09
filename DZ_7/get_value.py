@@ -16,3 +16,7 @@ def get_description(value):
 
 def get_sep(value):
     return input(value)
+
+
+def get_search(value):
+    return input(value)
